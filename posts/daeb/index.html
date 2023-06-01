@@ -1,0 +1,630 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>手把手教你用python在kaggle摘金牌 | 马克图布</title><meta name="author" content="马克图布"><meta name="copyright" content="马克图布"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="课程链接：手把手教你用python在kaggle摘金牌 How to Win a Data Science Competition: Learn from Top Kagglers  课程大纲 week1intro to competitions&amp;Recap竞赛机制      现实中ML与竞赛的区别    philosophy of competitions 1.An algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手把手教你用python在kaggle摘金牌">
+<meta property="og:url" content="https://mr-maktoub.github.io/posts/daeb/index.html">
+<meta property="og:site_name" content="马克图布">
+<meta property="og:description" content="课程链接：手把手教你用python在kaggle摘金牌 How to Win a Data Science Competition: Learn from Top Kagglers  课程大纲 week1intro to competitions&amp;Recap竞赛机制      现实中ML与竞赛的区别    philosophy of competitions 1.An algorithm">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mr-maktoub.github.io/img/avatar1.png">
+<meta property="article:published_time" content="2023-04-24T13:51:46.000Z">
+<meta property="article:modified_time" content="2023-05-15T14:31:33.441Z">
+<meta property="article:author" content="马克图布">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mr-maktoub.github.io/img/avatar1.png"><link rel="shortcut icon" href="/img/log3.jfif"><link rel="canonical" href="https://mr-maktoub.github.io/posts/daeb/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '手把手教你用python在kaggle摘金牌',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2023-05-15 22:31:33'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-shouyex"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-zuixinwenzhang_huaban"></i><span> 找文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei1"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian1"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-shijianzhou"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-shenghuo"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/messageboard/"><i class="fa-fw iconfont icon-liaotian-04"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li><li><a class="site-page child" href="/share/"><i class="fa-fw iconfont icon-fenxiang"></i><span> 分享</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw iconfont icon-shuji"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/FilmAndTV/"><i class="fa-fw iconfont icon-yingshi1"></i><span> 影视</span></a></li><li><a class="site-page child" href="/daohang/"><i class="fa-fw iconfont icon-daohang"></i><span> 导航站</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-gerenzhongxin"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="马克图布"><img class="site-icon" src="/img/log3.jfif"/><span class="site-name">马克图布</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw iconfont icon-shouyex"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-zuixinwenzhang_huaban"></i><span> 找文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei1"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian1"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-shijianzhou"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw iconfont icon-shenghuo"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/messageboard/"><i class="fa-fw iconfont icon-liaotian-04"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li><li><a class="site-page child" href="/share/"><i class="fa-fw iconfont icon-fenxiang"></i><span> 分享</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw iconfont icon-shuji"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/FilmAndTV/"><i class="fa-fw iconfont icon-yingshi1"></i><span> 影视</span></a></li><li><a class="site-page child" href="/daohang/"><i class="fa-fw iconfont icon-daohang"></i><span> 导航站</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw iconfont icon-gerenzhongxin"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">手把手教你用python在kaggle摘金牌</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-24T13:51:46.000Z" title="发表于 2023-04-24 21:51:46">2023-04-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-05-15T14:31:33.441Z" title="更新于 2023-05-15 22:31:33">2023-05-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="手把手教你用python在kaggle摘金牌"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>课程链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JJ411E7qU/?p=3&amp;spm_id_from=pageDriver&amp;vd_source=2ffed29a08d7c0e5407d996c2c4915a8">手把手教你用python在kaggle摘金牌</a></p>
+<p>How to Win a Data Science Competition: Learn from Top Kagglers</p>
+</blockquote>
+<h2 id="课程大纲"><a href="#课程大纲" class="headerlink" title="课程大纲"></a>课程大纲</h2><p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304242205060.png" alt="image-20230424220523913"></p>
+<h2 id="week1"><a href="#week1" class="headerlink" title="week1"></a>week1</h2><h3 id="intro-to-competitions-amp-Recap"><a href="#intro-to-competitions-amp-Recap" class="headerlink" title="intro to competitions&Recap"></a>intro to competitions&amp;Recap</h3><p>竞赛机制</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304242215015.png" alt="image-20230424221544947"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304242222364.png" alt="image-20230424222218284"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304242222951.png" alt="image-20230424222247882"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304242223904.png" alt="image-20230424222348831"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304242225586.png" alt="image-20230424222546509"></p>
+<p>现实中ML与竞赛的区别</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252045139.png" alt="image-20230425204528976"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252046234.png" alt="image-20230425204640136"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252047592.png" alt="image-20230425204728493"></p>
+<p>philosophy of competitions</p>
+<p>1.An algorithm is just a tool,anyboday can easily use it.You need something more to win.</p>
+<p>Insights abount data are usually much more useful than a carefully tuned ensemble!</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252052764.png" alt="image-20230425205201697"></p>
+<p>2.Do not limit yourself</p>
+<p>keep in mind that the only thing you should care about is target metric,it’s totally fine to use heuristics or manual data analysis in order to construct golden feature and improve your model</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252101968.png" alt="image-20230425210101889"></p>
+<p>3.Be creative!</p>
+<p>不要被传统的解决方法所限定</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252102699.png" alt="image-20230425210205635"></p>
+<p>4.Enjoy!</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252103547.png" alt="image-20230425210323489"></p>
+<p>常用机器学习方法概述</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252104074.png" alt="image-20230425210452017"></p>
+<p>Linear Moel</p>
+<p>It is especially good for sparse high dimensional data</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252107721.png" alt="image-20230425210749662"></p>
+<p>Tree-based<br>can be good default method for tabular data,but keep in mind for Tree-based model,it’s hard to capture linear dependencies since it requires a lot of splits.</p>
+<p>XGBoost 、LightGBM are  powerful</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252112846.png" alt="image-20230425211207762"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252116954.png" alt="image-20230425211647883"></p>
+<p>KNN-based methods</p>
+<p>knn在很大程度上依赖于如何测量点的接近程度</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252135558.png" alt="image-20230425213525485"></p>
+<p>Netural Networks</p>
+<p>神经网络是很难解释的，但是它们产生平滑的非线性决策边界</p>
+<p>特定的场景下，算法有着更高的性能，但是失去了特定的场景，算法可能达到不了很好的效果。也就是说没有类似于”灵丹妙药“的算法在每一项任务中都胜于其他的算法。</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252139903.png" alt="image-20230425213911826"></p>
+<p>conclusion</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252144878.png" alt="image-20230425214448791"></p>
+<p>The most powerful methods are Gradient Boosted Decision Trees and Neural Networks.But you shouldn’t understimate the others.</p>
+<p>一些python用来数据挖掘的包</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252153809.png" alt="image-20230425215355711"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252156141.png" alt="image-20230425215511360"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252156725.png" alt="image-20230425215625646"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304252157993.png" alt="image-20230425215731930"></p>
+<h3 id="Feature-preprocessing-amp-extraction"><a href="#Feature-preprocessing-amp-extraction" class="headerlink" title="Feature preprocessing & extraction"></a>Feature preprocessing &amp; extraction</h3><p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304262051519.png" alt="image-20230426205123423"></p>
+<p>Feature preprocessing</p>
+<p>Each type of feature has its own ways to be preprocessed in order to improve quality of the model. And Feature preprocessing is also model dependent.</p>
+<p>Feature generation</p>
+<p>特征衍生对于提升模型性能是非常重要的</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304262128935.png" alt="image-20230426212839861"></p>
+<h4 id="feature-preprocessing-and-feature-generation-for-numeric-features-数字特征的处理"><a href="#feature-preprocessing-and-feature-generation-for-numeric-features-数字特征的处理" class="headerlink" title="feature preprocessing and feature generation for numeric features(数字特征的处理)"></a>feature preprocessing and feature generation for numeric features(数字特征的处理)</h4><p>模型选择会影响特征的处理</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304262136021.png" alt="image-20230426213628959"></p>
+<p><strong>processing scaling</strong></p>
+<p>Note that there are models which do and don’t depend on feature scale</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304262158315.png" alt="image-20230426214736130"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304262159587.png" alt="image-20230426215906500"></p>
+<p>It is important to understand that different features scalings result in different models quality . In this sense ,it it just another typerparameter you need to optimize.</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304262202346.png" alt="image-20230426220253291"></p>
+<p>可以看到直方图的分布没有改变</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304262214051.png" alt="image-20230426221439991" style="zoom:50%;"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304262216125.png" alt="image-20230426221631043"></p>
+<p>After either of  MinMaxScaling or StandardScarling transformations,features impacts on non-tree-based models will be roughly similar.</p>
+<p><strong>Preprocessing:outliers</strong></p>
+<p>拿线性模型距离来说，异常值对模型的影响是非常大的。异常值不仅仅是特征值(feature values)的异常，目标值(target values)的异常也同样会引起相同的模型误差。</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304262225242.png" alt="image-20230426222500151"></p>
+<p>To protect linear models from outliers ,we can clip features values between two chosen values of lower bound and upper bound. It is called  <strong>缩尾</strong>(winsorization)</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304262234908.png" alt="image-20230426223448813"></p>
+<p><strong>Preprocessing:rank</strong>（rank transformation）</p>
+<p>这有时是比MinMaxScaler更好的选择。如果我们有离群值的话，rank transformation 会将离群值与其它数据靠近。</p>
+<p>它会建立原数据和索引之间的映射，Linear models,KNN, and neural network can benefit from this kind of transformation(if we have no time to handle outliers manually)</p>
+<p>注意：将其应用到测试集时，你需要用自己存储的key value(特征值—索引)，或者将训练集和测试集放在一起进行处理</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304262241981.png" alt="image-20230426224129919"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304262244173.png" alt="image-20230426224441104"></p>
+<p>对数变换和平方根变换经常帮助non-tree-based models and neural networks</p>
+<p>这两个变换很有用，因为可以是两个相对大的特征值趋于平均，而且越接近于0的值越容易被区分</p>
+<p>注：这两个变换对于所有预处理可能都适用</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304270945904.png" alt="image-20230427094456784"></p>
+<p><strong>Feature generation</strong></p>
+<p>两种方式，一是利用先验知识，而是深入挖掘数据</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304270953234.png" alt="image-20230427095314178"></p>
+<p>feature generation for numeric features</p>
+<p>一个很简单的例子是，如果你有住房面积和相应的价格，那么你可以衍生出另一个特征，房子每平方米价格</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304270955565.png" alt="image-20230427095517488"></p>
+<p>或者给你一个来自森林覆盖类型预测数据集的例子</p>
+<p>给你一个点距离水源的水平距离和垂直距离，我们可以很自然的衍生出 这个点到水源的直接距离</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304270959885.png" alt="image-20230427095940803"></p>
+<p>Among other things，it is userful to know that adding,multiplications ,divisions and  other features interactions can be of help not only for linear models    </p>
+<p>第三个例子有点没搞懂</p>
+<p>拍卖会确实不会设置到小数点后三位，也确实没有人会1s精确时间内不断发邮件。提取出小数点，利用人们对价格看法的差异这点不是很明白</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271005140.png" alt="image-20230427100533071"></p>
+<p>creativity and data understanding are the keys to productive feature generation</p>
+<p>特征预处理对不同模型的影响不同，Tree-based models 不依赖于scaling ，non-tree-based models 通常会依赖于scaling。</p>
+<p>我们可以把scaling 看做一个重要的超参数（不同的缩放方法会产生不同效果）</p>
+<p>feature generation is powered by an understanding of the data</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271014834.png" alt="image-20230427101409737"></p>
+<h4 id="Categorical-and-ordinal-features-类别特征和顺序特征的处理"><a href="#Categorical-and-ordinal-features-类别特征和顺序特征的处理" class="headerlink" title="Categorical and ordinal features(类别特征和顺序特征的处理)"></a>Categorical and ordinal features(类别特征和顺序特征的处理)</h4><p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271655222.png" alt="image-20230427165539105"></p>
+<p>label encoding is works fine for tree-based methods</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271701174.png" alt="image-20230427170135099"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271703362.png" alt="image-20230427170338273"></p>
+<p>One-hot encdoing</p>
+<p>this works well for linear methods,knn or nerual networks</p>
+<p>当one hot 特征矩阵很大的时候，我们需要考虑稀疏矩阵的存储方式。</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271713980.png" alt="image-20230427171314898"></p>
+<p>feature generation</p>
+<p>it is useful for non-tree models,like linear methods,knn or nerual networks</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271720590.png" alt="image-20230427172015509"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271729502.png" alt="image-20230427172956398"></p>
+<h4 id="Datetime-and-coordinates-时间特征和位置特征的加工和提取"><a href="#Datetime-and-coordinates-时间特征和位置特征的加工和提取" class="headerlink" title="Datetime and coordinates(时间特征和位置特征的加工和提取)"></a>Datetime and coordinates(时间特征和位置特征的加工和提取)</h4><p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271931415.png" alt="image-20230427193106302"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271934897.png" alt="image-20230427193423823"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271937298.png" alt="image-20230427193710243"></p>
+<p>我们一些datatime 的列在数据中，可以尝试相减生成新的特征。如下，我们有last_purchase_data和last_call_date 两个时间特征在数据中，然后我们通过相减生成data_diff特征</p>
+<p>注意相减生成的特征是数字特征，它的处理方法我们前面已经提过了</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271938375.png" alt="image-20230427193819295"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271945100.png" alt="image-20230427194514029"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271951542.png" alt="image-20230427195103366"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271955234.png" alt="image-20230427195534054"></p>
+<p>one more trick you need to know about coordinates,that if you train decision trees from them,you cn add slightly rotated coordinates is new features,and this will help a model make more precise selections on the map</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304271959787.png" alt="image-20230427195929709"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202304272006919.png" alt="image-20230427200618828"></p>
+<h4 id="Missing-values-缺失值处理"><a href="#Missing-values-缺失值处理" class="headerlink" title="Missing values(缺失值处理)"></a>Missing values(缺失值处理)</h4><p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305011734850.png" alt="image-20230501173419744"></p>
+<p>中值或者平均值可能会造成误差</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305011916076.png" alt="image-20230501191638973"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305011924089.png" alt="image-20230501192443979"></p>
+<h4 id="Feature-extraction-from-texts-and-images-文本特征的提取"><a href="#Feature-extraction-from-texts-and-images-文本特征的提取" class="headerlink" title="Feature extraction from texts and images(文本特征的提取)"></a>Feature extraction from texts and images(文本特征的提取)</h4><p>first ,we talk featured extraction from text</p>
+<p>there are two main ways to do this 1, appy bag of words  2 use embeddings like word to vector</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305011934768.png" alt="image-20230501193440668"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305011946575.png" alt="image-20230501194640485"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305011949353.png" alt="image-20230501194941269"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305011950232.png" alt="image-20230501195035144"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305011954028.png" alt="image-20230501195421918"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305011955434.png" alt="image-20230501195508370"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305011959776.png" alt="image-20230501195701896"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305012000790.png" alt="image-20230501200015679"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305012002918.png" alt="image-20230501200215829"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305012003976.png" alt="image-20230501200336886"></p>
+<p>word2vec approach for texts</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305012026156.png" alt="image-20230501202651057"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305012029932.png" alt="image-20230501202913840"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305012030647.png" alt="image-20230501203031570"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305012033342.png" alt="image-20230501203341248"></p>
+<p>CNN</p>
+<p>使用预训练模型进行训练时，选择一个很小很小的学习率</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305012043373.png" alt="image-20230501204352266"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305012057315.png" alt="image-20230501205700205"></p>
+<h2 id="week-2"><a href="#week-2" class="headerlink" title="week 2"></a>week 2</h2><h3 id="EDA-Exploratory-Data-Analaysis-探索性数据分析"><a href="#EDA-Exploratory-Data-Analaysis-探索性数据分析" class="headerlink" title="EDA(Exploratory Data Analaysis,探索性数据分析)"></a>EDA(Exploratory Data Analaysis,探索性数据分析)</h3><h4 id="what-is-the-EDA"><a href="#what-is-the-EDA" class="headerlink" title="what is the EDA?"></a>what is the EDA?</h4><p>It’s basically a process of looking  into the data,understanding it and  getting confortable with it.</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305061724022.png" alt="image-20230506172449916"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305061728472.png" alt="image-20230506172828395"></p>
+<p>一些强大的工具，你只需要将数据喂给它，它可能会用像混合、叠加，并最终获得一个相当不错的成绩在排行榜上，虽然这种方法有效，但是不一定让你排入前列。它通常是当数据进行匿名、加密的、预先处理和模糊处理的情况。 </p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305061732108.png" alt="image-20230506173221995"></p>
+<p>one of the main EDA tools is Visualization.</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305061737243.png" alt="image-20230506173700094"></p>
+<p>按<code>#promos sent</code>列排序，diff为相邻<code>#promos used</code>之间的差值，发现大部分等于<code>used this promo</code></p>
+<p>通过对数据的探索，我们没有模型也能达到80%的准确率。可以这样是因为竞赛组织方的失误， 这些mistakes 被称为leaks</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305061743719.png" alt="image-20230506174328626"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305061751909.png" alt="image-20230506175101834"></p>
+<h4 id="Building-intuition-of-Data"><a href="#Building-intuition-of-Data" class="headerlink" title="Building intuition of Data"></a>Building intuition of Data</h4><p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305061917810.png" alt="image-20230506191708638"></p>
+<p>根据不同的竞赛任务，获取相关的领域知识，比如下面这个预测广告成本的任务。通过搜索相关的列名，我们得知它的含义</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305061920301.png" alt="image-20230506192027149"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305061930108.png" alt="image-20230506193028004"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305061934460.png" alt="image-20230506193413369"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305061938358.png" alt="image-20230506193852195"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305061940589.png" alt="image-20230506194057475"></p>
+<h4 id="Exploring-anonymized-data-处理隐藏信息"><a href="#Exploring-anonymized-data-处理隐藏信息" class="headerlink" title="Exploring anonymized data(处理隐藏信息)"></a>Exploring anonymized data(处理隐藏信息)</h4><p>不是所有数据都是清晰且易懂的，数据也可以是匿名和混淆的。</p>
+<p>sometimes we can decode the data or if we can not we can try to guess what is the type of feature</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305061959136.png" alt="image-20230506195953073"></p>
+<p>For Anonymized data, Sometimes the organizers really want some information to be reviewed</p>
+<p>比如组织者要求对文档进行分类，但是不像透露文档中的内容，所以就会用散列值来代替，他不会改变基于词袋的模型</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305062005336.png" alt="image-20230506200500244"></p>
+<p>首先可以在合法的方式下，尝试decode或者de-anonymize the data，我们尝试猜测 the meaning of features，有时候de-anonymize the data 是不可能的，但是我们一般可以做到的是猜测feature的type，将它们分为numeric，categorical等等，然后我们可以尝试找·出特征之间的相互关系</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305062007500.png" alt="image-20230506200755388"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305062113157.png" alt="image-20230506211330929"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305062116888.png" alt="image-20230506211639731"></p>
+<h4 id="Visualizations-可视化"><a href="#Visualizations-可视化" class="headerlink" title="Visualizations(可视化)"></a>Visualizations(可视化)</h4><p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305070859764.png" alt="image-20230507085914582"></p>
+<p>First,there is no recipe how you find interesting things in the data,you should just spend some time looking closely at the data table, printing it, and examining</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305070902704.png" alt="image-20230507090231554"></p>
+<p>The first, we can build histograms</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305070904610.png" alt="image-20230507090449504"></p>
+<blockquote>
+<p>NOTE</p>
+<p>直方图可能会迷惑你</p>
+</blockquote>
+<p>比如，这样看，我们发现图中存在许多零，但是如果我们取对数值然后再次建立直方图，就会得到下图。所以说如果我们有一个假设，尽量在不同的几个方面来证明它</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305070907113.png" alt="image-20230507090707003"></p>
+<p>第二个有趣的地方是图中的峰值，这个峰值处于该feature的平均值处，似乎组织者用平均值来填充它，所以我们可以推测出这些值最初是缺失的</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305070909483.png" alt="image-20230507090902377"></p>
+<p>对于下图，如果有水平的直线，我们可以知道这个特征有很多重复的值，另外还要注意随机性，也就是说我们看到一些水平线，但是没有垂直的，这意味着数据被适当的打乱</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071013395.png" alt="image-20230507101352247"></p>
+<p>我们还可以根据便签对点进行颜色编码，这里可以看到特征是相当不错的，因为它可能会给出一个很好的类别分离，我们也清楚这里的数据并没有被打乱。事实上，它是按类别标签进行排序的</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071017615.png" alt="image-20230507101704461"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071020761.png" alt="image-20230507102035643"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071021040.png" alt="image-20230507102135932"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071022670.png" alt="image-20230507102224582"></p>
+<p>Exploring feature relations</p>
+<p>看散点图</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071030896.png" alt="image-20230507103013778"></p>
+<p>我们可以用散点图来观察训练集和测试集上的分布是否相同</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071031561.png" alt="image-20230507103145444"></p>
+<p>如果我们得到下面的散点图，我们可以得出x1+x2=1</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071033303.png" alt="image-20230507103308179"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071042341.png" alt="image-20230507104251190"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071044729.png" alt="image-20230507104400587"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071045515.png" alt="image-20230507104520319"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071050648.png" alt="image-20230507105008540"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071050716.png" alt="image-20230507105037593"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071051851.png" alt="image-20230507105101748"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071051009.png" alt="image-20230507105114915"></p>
+<h4 id="Dataset-cleaning-and-other-things-to-check-数据清理和审查"><a href="#Dataset-cleaning-and-other-things-to-check-数据清理和审查" class="headerlink" title="Dataset cleaning and other things to check(数据清理和审查)"></a>Dataset cleaning and other things to check(数据清理和审查)</h4><p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071701204.png" alt="image-20230507170129120"></p>
+<p>我们可能会遇到特征中值都相同的项，这可能是因为主办方给我们的数据只是全部数据的一小部分，比如只给我们2018年的数据，那么在year那一个特征中，值全部为2018，在下图中，就想f0。或者是这种情况，在训练集中特征的值全部一样，但是在测试集中特征的值却变了，比如特征f1</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071707420.png" alt="image-20230507170701327"></p>
+<p>也有像f2,f3这种特征，两个特征的值完全一样，也就是有重复冗余的特征，可以只留下一个</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071746258.png" alt="image-20230507174605151"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071750240.png" alt="image-20230507175001148"></p>
+<p>finally，it is very useful to check that the dataset is shuffled ,because if it is not ,then there is a high chance to find data leakage.</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071751676.png" alt="image-20230507175149547"></p>
+<p>finally, i want to encourage you one more time to visualize very  possible thing in a dataset, Visualizations will lead you to find magic features</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305071758541.png" alt="image-20230507175858429"></p>
+<h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><p><strong>Springleaf</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.kaggle.com/competitions/springleaf-marketing-response/overview">竞赛地址</a></p>
+</blockquote>
+<p><strong>数字信息处理（Numerai Competition）</strong></p>
+<p>p24(没看懂)</p>
+<iframe src="//player.bilibili.com/player.html?aid=83805912&bvid=BV1JJ411E7qU&cid=144027792&page=24" scrolling="no" border="0" frameborder="no" framespacing="0" height="500" allowfullscreen="true"> </iframe>
+
+<p>时间序列分析</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305081843083.png" alt="image-20230508184309916"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305081845237.png" alt="image-20230508184517084"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305081845739.png" alt="image-20230508184534634"></p>
+<h3 id="Validation"><a href="#Validation" class="headerlink" title="Validation"></a>Validation</h3><p>Validation and overfitting</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305092124301.png" alt="image-20230509212403110"><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305092128979.png" alt=""></p>
+<p>通常来说，我们通常把我们的训练数据集分为两部分——train part and  validation part。we fit our model on the train part and check its quality on the validation part</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305092132590.png" alt="image-20230509213221505"></p>
+<p>通常在竞赛中，测试集分为public LB和private PB（公榜和私榜）</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305092136410.png" alt="image-20230509213627328"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305092147301.png" alt="image-20230509214737163"></p>
+<p>here ,we need to make a remark that the meaning of overfitting in machine learning in general and the meaning of overfitting competitions in particular are sightly different.</p>
+<p>In general ,we say that the model is overfitted if its quality on the train set is better than on the test set.But in competitions ,we often say that the models are overfitted only in case when quality on the test set will be worse than we have expected</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305092154704.png" alt="image-20230509215421585"><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305092156827.png" alt="image-20230509215618685"></p>
+<p>Validation strategies</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305102052066.png" alt="image-20230510205241896"></p>
+<p>holdout include  one sample can go either or train or to validation, so the samples between train and the validation do not overlap</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305102057313.png" alt="image-20230510205756145"></p>
+<p>K-fold can be viewed as a repeated holdout ,because we split our data into  key parts and iterate through them,using every part as a validation set only once.After this procedure，we average scores over these k-folds. Here ,it is important to understand the differene between K-fold and usual holdout repeated k times</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305102059713.png" alt="image-20230510205920589"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305102119911.png" alt="image-20230510211939737"></p>
+<p>stratification</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305102151182.png" alt="image-20230510215136065"></p>
+<p>当验证机器学习模型的性能时，我们需要评估模型在未见过的数据上的表现。为了完成这个任务，常用的策略包括”holdout”、”K-fold”、”LOO”和”stratification”。</p>
+<ol>
+<li>Holdout（留出法）：这是最简单的验证策略之一。它将原始数据集划分为两个互斥的子集：训练集和测试集。训练集用于拟合模型，测试集用于评估模型的性能。通常，我们将数据集的70-80%用于训练，剩余的20-30%用于测试。这种方法简单直观，但可能会受到划分的偶然性影响。</li>
+<li>K-fold交叉验证：这种方法通过将原始数据集划分为K个相等大小的子集（称为”折叠”），每个子集都会轮流作为验证集，其余的K-1个子集作为训练集。这个过程重复K次，每个子集都会作为一次验证集。最终，通过对K次验证结果进行平均，得到一个更可靠的模型评估指标。K-fold交叉验证可以减轻holdout法的随机性，但需要进行K次模型训练和验证。</li>
+<li>LOO（留一法）：LOO交叉验证是K-fold交叉验证的特例，其中K等于数据集的样本数。对于每个样本，它都被单独保留为验证集，而其余的样本用于训练。这种方法对于小型数据集可能是可行的，但对于大型数据集，由于计算成本很高，往往不太实用。</li>
+<li>Stratification（分层）：分层是一个技巧，通常与K-fold交叉验证结合使用。在分层过程中，我们根据数据的某些特征将样本分层，以确保每个折叠中都包含各个类别的样本。例如，在二分类问题中，我们可以使用分层来确保每个折叠中正例和反例的比例相似。分层可以提高模型评估的准确性，并减少由于折叠不均衡而导致的偏差。</li>
+</ol>
+<p>这些验证策略都有其优点和局限性，选择哪种策略取决于具体的问题和数据集。通常，K-fold交叉验证与分层是机器学习中常用的策略。</p>
+<p>当处理分类问题时，Stratification（分层）是一种常用的技巧，用于确保训练集和验证集中的样本在类别分布上具有相似性。它的目的是防止在划分数据集时导致某个类别在训练集或验证集中过于少见或过于频繁。</p>
+<p>在机器学习任务中，我们经常遇到不平衡的数据集，其中某个类别的样本数量明显少于其他类别。如果简单地将数据集随机划分为训练集和验证集，可能会导致某个类别在其中一个集合中完全缺失，这会对模型的性能评估产生误导。</p>
+<p>Stratification通过保持每个类别在划分后的数据集中的比例，解决了这个问题。具体来说，Stratification会根据类别标签对数据进行分层划分，以确保每个类别在训练集和验证集中都有相似的分布。</p>
+<p>例如，假设我们有一个二分类问题，其中正例的样本比例较少。在进行K-fold交叉验证时，Stratification可以确保每个折叠中正例和反例的比例都与原始数据集中的比例相似。这样一来，在模型评估过程中，每个折叠都能够充分代表原始数据集的类别分布。</p>
+<p>通过使用Stratification，我们可以更可靠地评估模型的性能，特别是在处理不平衡数据集时。这种技巧有助于减少由于样本分布不平衡而导致的偏差，并提供更准确的模型评估结果。</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305102151363.png" alt="image-20230510215111261"></p>
+<p>Data splitting strategies</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305102215997.png" alt="image-20230510221522868"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305102220463.png" alt="image-20230510222035370"></p>
+<p>Random,rowwise：随机splite数据，这些行是不相关的；</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305102222169.png" alt="image-20230510222212077"></p>
+<p>Timewise:a special case of validation for the time-based split is a moving window validation</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305112243347.png" alt="image-20230511224311508"></p>
+<p>By ID </p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305112244486.png" alt="image-20230511224416397"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305112248845.png" alt="image-20230511224819763"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305112250052.png" alt="image-20230511225031787"></p>
+<p>Problems occuring for Validation</p>
+<p>通常会遇见两大类的问题，</p>
+<p>第一大类是测试阶段训练集和测试集分布不一致</p>
+<p>第二大类是提交时发现本地和提交后的分数有割裂</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305122046514.png" alt="image-20230512204531834"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305122051963.png" alt="image-20230512205108840"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305122100943.png" alt="image-20230512205809771"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305122118543.png" alt="image-20230512211853452"></p>
+<p>训练集合测试集分布不一样，through <strong>leaderboard probing</strong></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305122125809.png" alt="image-20230512212523687"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305122128185.png" alt="image-20230512212853080"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305122131773.png" alt="image-20230512213114661"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305122143724.png" alt="image-20230512214343556"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305122146325.png" alt="image-20230512214607094"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305122145135.png" alt="image-20230512214510035"></p>
+<h3 id="Data-leakage"><a href="#Data-leakage" class="headerlink" title="Data leakage"></a>Data leakage</h3><p>Basic Data leaks</p>
+<p>we’ll define leakage in a very general sense as an unexpected information in the data that allows use to make unrealistically good predictions.</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305151544276.png" alt="image-20230515154348625"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305151544824.png" alt="image-20230515154440746"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305151546144.png" alt="image-20230515154613037"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305151554174.png" alt="image-20230515155458072"></p>
+<p>Leaderboard probing(排行榜探测)</p>
+<p>实际上有两种类型的探测</p>
+<p>第一个是简单的从排行榜的公共部分提取ground truth，他通常是harmless，</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305151557030.png" alt="image-20230515155722934"></p>
+<h4 id="实战-1"><a href="#实战-1" class="headerlink" title="实战"></a>实战</h4><p>Expedia Kaggle Competition</p>
+<p>p31</p>
+<h2 id="week-3"><a href="#week-3" class="headerlink" title="week 3"></a>week 3</h2><p><strong>Metircs optimization</strong></p>
+<p>我们专注于分类和回归，所以主要针对这些指标</p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305152217590.png" alt="image-20230515221703464"></p>
+<p><img src="https://raw.githubusercontent.com/RisingAuroras/giteePagesImgs/master/202305152221792.png" alt="image-20230515222158642"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://mr-maktoub.github.io">马克图布</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://mr-maktoub.github.io/posts/daeb/">https://mr-maktoub.github.io/posts/daeb/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://mr-maktoub.github.io" target="_blank">马克图布</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/avatar1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/a49e/" title="vscode快捷键总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">vscode快捷键总结</div></div></a></div><div class="next-post pull-right"><a href="/posts/812e/" title="最优化学习笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">最优化学习笔记</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">马克图布</div><div class="author-info__description">记录我的遗忘</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%BA%B2"><span class="toc-number">1.</span> <span class="toc-text">课程大纲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#week1"><span class="toc-number">2.</span> <span class="toc-text">week1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#intro-to-competitions-amp-Recap"><span class="toc-number">2.1.</span> <span class="toc-text">intro to competitions&amp;Recap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Feature-preprocessing-amp-extraction"><span class="toc-number">2.2.</span> <span class="toc-text">Feature preprocessing &amp; extraction</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#feature-preprocessing-and-feature-generation-for-numeric-features-%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-number">2.2.1.</span> <span class="toc-text">feature preprocessing and feature generation for numeric features(数字特征的处理)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Categorical-and-ordinal-features-%E7%B1%BB%E5%88%AB%E7%89%B9%E5%BE%81%E5%92%8C%E9%A1%BA%E5%BA%8F%E7%89%B9%E5%BE%81%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-number">2.2.2.</span> <span class="toc-text">Categorical and ordinal features(类别特征和顺序特征的处理)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Datetime-and-coordinates-%E6%97%B6%E9%97%B4%E7%89%B9%E5%BE%81%E5%92%8C%E4%BD%8D%E7%BD%AE%E7%89%B9%E5%BE%81%E7%9A%84%E5%8A%A0%E5%B7%A5%E5%92%8C%E6%8F%90%E5%8F%96"><span class="toc-number">2.2.3.</span> <span class="toc-text">Datetime and coordinates(时间特征和位置特征的加工和提取)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Missing-values-%E7%BC%BA%E5%A4%B1%E5%80%BC%E5%A4%84%E7%90%86"><span class="toc-number">2.2.4.</span> <span class="toc-text">Missing values(缺失值处理)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Feature-extraction-from-texts-and-images-%E6%96%87%E6%9C%AC%E7%89%B9%E5%BE%81%E7%9A%84%E6%8F%90%E5%8F%96"><span class="toc-number">2.2.5.</span> <span class="toc-text">Feature extraction from texts and images(文本特征的提取)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#week-2"><span class="toc-number">3.</span> <span class="toc-text">week 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#EDA-Exploratory-Data-Analaysis-%E6%8E%A2%E7%B4%A2%E6%80%A7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="toc-number">3.1.</span> <span class="toc-text">EDA(Exploratory Data Analaysis,探索性数据分析)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#what-is-the-EDA"><span class="toc-number">3.1.1.</span> <span class="toc-text">what is the EDA?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Building-intuition-of-Data"><span class="toc-number">3.1.2.</span> <span class="toc-text">Building intuition of Data</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Exploring-anonymized-data-%E5%A4%84%E7%90%86%E9%9A%90%E8%97%8F%E4%BF%A1%E6%81%AF"><span class="toc-number">3.1.3.</span> <span class="toc-text">Exploring anonymized data(处理隐藏信息)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Visualizations-%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">3.1.4.</span> <span class="toc-text">Visualizations(可视化)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dataset-cleaning-and-other-things-to-check-%E6%95%B0%E6%8D%AE%E6%B8%85%E7%90%86%E5%92%8C%E5%AE%A1%E6%9F%A5"><span class="toc-number">3.1.5.</span> <span class="toc-text">Dataset cleaning and other things to check(数据清理和审查)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E6%88%98"><span class="toc-number">3.1.6.</span> <span class="toc-text">实战</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Validation"><span class="toc-number">3.2.</span> <span class="toc-text">Validation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-leakage"><span class="toc-number">3.3.</span> <span class="toc-text">Data leakage</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E6%88%98-1"><span class="toc-number">3.3.1.</span> <span class="toc-text">实战</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#week-3"><span class="toc-number">4.</span> <span class="toc-text">week 3</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3eeb/" title="Hello World">Hello World</a><time datetime="2023-06-01T07:29:35.968Z" title="发表于 2023-06-01 15:29:35">2023-06-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/6f25/" title="我的云音乐APP开发课程笔记">我的云音乐APP开发课程笔记</a><time datetime="2023-06-01T07:29:35.962Z" title="发表于 2023-06-01 15:29:35">2023-06-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/8462/" title="重新梳理Android权限管理">重新梳理Android权限管理</a><time datetime="2023-06-01T07:29:35.959Z" title="发表于 2023-06-01 15:29:35">2023-06-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/9958/" title="《吴恩达机器学习笔记》">《吴恩达机器学习笔记》</a><time datetime="2023-06-01T07:29:35.949Z" title="发表于 2023-06-01 15:29:35">2023-06-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/935d/" title="常见不等式、等式与基础理论">常见不等式、等式与基础理论</a><time datetime="2023-06-01T07:29:35.914Z" title="发表于 2023-06-01 15:29:35">2023-06-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 马克图布</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
